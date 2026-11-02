@@ -23,7 +23,7 @@ WHERE f.order_status NOT IN ('canceled', 'unavailable')
 GROUP BY c.customer_state
 ORDER BY pedidos DESC;
 
--- Pergunta 3: entrega por vendedor (so vendedores com 100 pedidos entregues ou mais)12
+-- Pergunta 3: entrega por vendedor (so vendedores com 100 pedidos entregues ou mais)
 SELECT
     v.seller_id,
     COUNT(*) AS pedidos_entregues,
@@ -38,10 +38,18 @@ HAVING COUNT(*) >= 100
 ORDER BY percentual_no_prazo DESC;
 
 -- Pergunta 3 (complemento): nota media dos pedidos entregues no prazo e fora do prazo
+WITH pedidos_unicos AS (
+    SELECT DISTINCT
+        order_id,
+        entregue_no_prazo,
+        review_score
+    FROM fato_pedidos
+    WHERE entregue_no_prazo IS NOT NULL
+)
 SELECT
     entregue_no_prazo,
     COUNT(*) AS pedidos,
     ROUND(AVG(review_score), 2) AS nota_media
-FROM fato_pedidos
-WHERE entregue_no_prazo IS NOT NULL
-GROUP BY entregue_no_prazo;
+FROM pedidos_unicos
+GROUP BY entregue_no_prazo
+ORDER BY entregue_no_prazo;
