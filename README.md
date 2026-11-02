@@ -58,6 +58,8 @@ A terceira análise possui também uma consulta complementar que compara as aval
 | Git / GitHub | Versionamento do projeto |
 
 As dependências Python estão declaradas em `requirements.txt`. O pacote `python-dotenv` é necessário porque os scripts da camada Gold utilizam `load_dotenv()`.
+
+
 ---
 
 ## 4. Estrutura do projeto
