@@ -57,8 +57,7 @@ A terceira análise possui também uma consulta complementar que compara as aval
 | python-dotenv | Leitura das configurações armazenadas no `.env` |
 | Git / GitHub | Versionamento do projeto |
 
-As dependências Python estão declaradas em `requirements.txt`. O pacote `python-dotenv` é necessário porque os scripts da camada Gold utilizam `load_dotenv()` e deve estar incluído nesse arquivo.
-
+As dependências Python estão declaradas em `requirements.txt`. O pacote `python-dotenv` é necessário porque os scripts da camada Gold utilizam `load_dotenv()`.
 ---
 
 ## 4. Estrutura do projeto
